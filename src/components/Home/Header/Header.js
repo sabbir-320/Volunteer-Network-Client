@@ -4,9 +4,9 @@ export default function Header() {
     return (
         <>
             <nav class="navbar navbar-expand-sm navbar-light navbar-right">
-                <a to="#" className="navbar-brand">
+                <Link to="/">
                     <img src="logos/headerImage.png" alt="logo" className="img-fluid" style={{ width: '150px' }} />
-                </a>
+                </Link>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -19,14 +19,14 @@ export default function Header() {
                             <Link class="nav-link" to="#">Donaition</Link>
                         </li>
                         <li class="nav-item">
-                            <Link class="nav-link" to="#">Events</Link>
+                            <Link class="nav-link" to="/events">Events</Link>
                         </li>
                         <li class="nav-item">
                             <Link class="nav-link" to="/blogs">Blogs</Link>
                         </li>
                     </ul>
-                    <Link to="/admin"><button className="btn btn-primary mr-2">Admin</button></Link>
-                    <Link to="/login"><button className="btn btn-dark">Login</button></Link>
+                    <Link to="/dashboard"><button className="btn btn-primary mr-2">Admin</button></Link>
+                    <Link to="/login"><button className="btn btn-dark">Login</button></Link> \<div pe=""></div> 
                 </div>
             </nav>
             <form class="form-inline d-flex justify-content-center mt-5">

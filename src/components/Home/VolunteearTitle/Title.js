@@ -1,17 +1,13 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { fakeData } from '../../../fakeData/FakeData'
+import TitleInfo from './TitleInfo'
+
 export default function Title (){
-    const history = useHistory()
-    const handlebtn = () => {
-        history.push('/register')
-    }
+    
     return(
         <div>
-            <button onClick={handlebtn}>Go to register</button>
-            {/* <Link to='/register'>
-            <button>Education</button>
-            </Link> */}
+            {/* <img className="img-fluid" src={`http://localhost:5000/${volunteers.img}`} alt="image"/> */}
         </div>
     )
 }

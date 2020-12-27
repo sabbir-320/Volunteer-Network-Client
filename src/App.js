@@ -10,8 +10,10 @@ import Home from './components/Home/Home';
 import Register from './components/Register/Register';
 import Login from './components/Login/Login';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
-import Admin from './components/Admin/Admin';
 import Event from './components/Event.js/Event';
+import Dashboard from './components/Dashboard/Dashboard';
+import VolunteerLIst from './components/Dashboard/VolunteerLIst/VolunteerLIst';
+import AddEvent from './components/Dashboard/AddEvent/AddEvent';
 export const userContext = createContext()
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({})
@@ -25,14 +27,20 @@ function App() {
           <Route path="/login">
             <Login></Login>
           </Route>
-          <Route path="/event">
+          <PrivateRoute path="/events">
             <Event></Event>
-          </Route>
+          </PrivateRoute>
           <PrivateRoute path="/register">
             <Register></Register>
           </PrivateRoute>
-          <PrivateRoute path="/admin">
-            <Admin></Admin>
+          <PrivateRoute path="/dashboard">
+            <Dashboard></Dashboard>
+          </PrivateRoute>
+          <PrivateRoute path="/volunteerList">
+            <VolunteerLIst></VolunteerLIst>
+          </PrivateRoute>
+          <PrivateRoute path="/addEvent">
+            <AddEvent></AddEvent>
           </PrivateRoute>
         </Switch>
       </Router>

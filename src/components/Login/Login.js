@@ -3,7 +3,7 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import { firebaseConfig } from './firebase.config';
 import { userContext } from '../../App';
-import { useHistory, useLocation } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 firebase.initializeApp(firebaseConfig);
 
 export default function Login() {
@@ -39,7 +39,9 @@ export default function Login() {
     return (
         <div>
             <div className="d-flex justify-content-center mt-5">
+                <Link to="/">
                 <img src="logos/headerImage.png" alt="logo" className="img-fluid" style={{ width: '150px' }} />
+                </Link>
             </div>
             <div className="d-flex justify-content-center mt-5">
                 <h4>Login with</h4>

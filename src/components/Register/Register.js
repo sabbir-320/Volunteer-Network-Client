@@ -5,7 +5,17 @@ import './Register.css'
 export default function Register() {
     const [loggedInUser, setLoggedInUser] = useContext(userContext)
     const { register, handleSubmit, watch, errors } = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit = (data) => {
+        fetch('http://localhost:5000/userRegister', {
+            method: 'POST',
+            headers: {'Content-Type' : 'application/json'},
+            body: JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+        })
+    }
 
     return (
         <div className="d-flex justify-content-center">
