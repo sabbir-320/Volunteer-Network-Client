@@ -21,10 +21,8 @@ const AddEvent = () => {
         const formData = new FormData()
         formData.append('file', infoFile)
         formData.append('title', info.title)
-        formData.append('date', info.date)
-        formData.append('discription', info.discription)
       
-        fetch('http://localhost:5000/addVolunteer', {
+        fetch('http://localhost:5000/addTask', {
           method: 'POST',
           body: formData
         })
@@ -46,12 +44,6 @@ const AddEvent = () => {
                     <div class="form-group">
                         <label for="exampleInputEmail1">Event Title</label>
                         <input onBlur={handleBlur} class="form-control" type="text" name="title" placeholder="Event Title" />
-
-                        <label for="exampleInputPassword1">Date</label>
-                        <input onBlur={handleBlur} class="form-control" type="text" name="date" placeholder="Date" />
-
-                        <label for="exampleInputPassword1">Discription</label>
-                        <input onBlur={handleBlur} class="form-control" type="text" name="discription" placeholder="Discription" />
 
                         <label for="exampleFormControlFile1">Chose a image</label>
                         <input onChange={handlefileChange} type="file" class="form-control-file" id="exampleFormControlFile1" />

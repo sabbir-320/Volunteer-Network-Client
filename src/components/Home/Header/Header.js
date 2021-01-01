@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 export default function Header() {
     return (
-        <>
+        <div className="container">
             <nav class="navbar navbar-expand-sm navbar-light navbar-right">
                 <Link to="/">
                     <img src="logos/headerImage.png" alt="logo" className="img-fluid" style={{ width: '150px' }} />
@@ -33,6 +33,6 @@ export default function Header() {
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
-        </>
+        </div>
     )
 }   

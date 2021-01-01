@@ -33,15 +33,15 @@ function App() {
           <PrivateRoute path="/register">
             <Register></Register>
           </PrivateRoute>
-          <PrivateRoute path="/dashboard">
+          <Route path="/dashboard">
             <Dashboard></Dashboard>
-          </PrivateRoute>
-          <PrivateRoute path="/volunteerList">
+          </Route>
+          <Route path="/volunteerList">
             <VolunteerLIst></VolunteerLIst>
-          </PrivateRoute>
-          <PrivateRoute path="/addEvent">
+          </Route>
+          <Route path="/addEvent">
             <AddEvent></AddEvent>
-          </PrivateRoute>
+          </Route>
         </Switch>
       </Router>
     </userContext.Provider>
