@@ -1,0 +1,11 @@
+div img {
+    width: 270px;
+    height: 320px
+}
+div p {
+    background-color: #FF7044;
+    color: #fff;
+    padding: 25px;
+    border-radius: 0px 0px 5px 5px;
+    font-weight: bolder;
+}

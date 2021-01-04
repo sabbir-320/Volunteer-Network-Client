@@ -6,22 +6,22 @@ import EventInfo from './EventInfo';
 export default function Event() {
     const [loggedInUser, setLoggedInUser] = useContext(userContext)
     const [event, setEvent] = useState([])
+
     useEffect(() => {
-        fetch('http://localhost:5000/userEvent?email='+loggedInUser.email)
+        fetch(`http://localhost:5000/volunteerByEmail?email=${loggedInUser.email}`)
             .then(res => res.json())
             .then(events => {
-                console.log(events);
                 setEvent(events)
             })
     }, [])
     return (
         <div className="container">
             <Header></Header>
-            
+            <div className="row">
                 {
                     event.map(evt => <EventInfo events={evt}></EventInfo>)
                 }
-            
+            </div>
         </div>
     )
 }

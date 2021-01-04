@@ -1,43 +1,26 @@
-import React, { useContext } from 'react'
-import { useForm } from 'react-hook-form';
-import { userContext } from '../../App'
-import './Register.css'
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import RegisterInfo from './RegisterInfo'
+
+
 export default function Register() {
-    const [loggedInUser, setLoggedInUser] = useContext(userContext)
-    const { register, handleSubmit, watch, errors } = useForm();
-    const onSubmit = (data) => {
-        fetch('http://localhost:5000/userRegister', {
-            method: 'POST',
-            headers: {'Content-Type' : 'application/json'},
-            body: JSON.stringify(data)
-        })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-        })
-    }
+    const { id } = useParams()
+    const [userTask, setUserTask] = useState([])
+    useEffect(() => {
+        fetch(`http://localhost:5000/register/${id}`)
+            .then(res => res.json())
+            .then(data => setUserTask(data))
+            .catch(err => console.log(err))
+    }, [])
+
 
     return (
-        <div className="d-flex justify-content-center">
-            <div className="img-dispay">
-                <img src="logos/headerImage.png" alt="logo" className="img-fluid" style={{ width: '150px' }} />
+        <div className="container">
+            <div className="w-100 vh-100">
+                {
+                    userTask.map(x => <RegisterInfo userItem={x}></RegisterInfo>)
+                }
             </div>
-            <form onSubmit={handleSubmit(onSubmit)} className="reg-form">
-                <h3>Register as a volunteer</h3>
-                <label>Name:</label>
-                {errors.name && <span className="error">This field is required</span>}
-                <input name="name" defaultValue={loggedInUser.displayName} ref={register({ required: true })} />
-
-                <label>Email:</label>
-                {errors.email && <span className="error">This field is required</span>}
-                <input name="email" defaultValue={loggedInUser.email} ref={register({ required: true })} />
-
-                <label>Date:</label>
-                {errors.date && <span className="error">This field is required</span>}
-                <input name="date" placeholder="12/20/2021" ref={register({ required: true })} />
-
-                <input type="submit" className="btn btn-primary" />
-            </form>
         </div>
     )
 }

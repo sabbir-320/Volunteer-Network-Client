@@ -14,6 +14,7 @@ import Event from './components/Event.js/Event';
 import Dashboard from './components/Dashboard/Dashboard';
 import VolunteerLIst from './components/Dashboard/VolunteerLIst/VolunteerLIst';
 import AddEvent from './components/Dashboard/AddEvent/AddEvent';
+
 export const userContext = createContext()
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({})
@@ -27,12 +28,12 @@ function App() {
           <Route path="/login">
             <Login></Login>
           </Route>
-          <PrivateRoute path="/events">
+          <Route path="/events">
             <Event></Event>
-          </PrivateRoute>
-          <PrivateRoute path="/register">
+          </Route>
+          <Route path="/register/:id">
             <Register></Register>
-          </PrivateRoute>
+          </Route>
           <Route path="/dashboard">
             <Dashboard></Dashboard>
           </Route>
@@ -41,6 +42,9 @@ function App() {
           </Route>
           <Route path="/addEvent">
             <AddEvent></AddEvent>
+          </Route>
+          <Route path="/RegisterInfo">
+            <Register></Register>
           </Route>
         </Switch>
       </Router>

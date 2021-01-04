@@ -1,11 +1,14 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
+import './volunteerTitle.css'
+
 export default function TitleInfo({ items }) {
-    console.log(items);
     return (
-        <div className="row">
-            <div className="col-md-3">
-                <img style={{width: "270px", height: "320"}} className="img-fluid" src={`data:image/png;base64,${items.image.img}`} />
-            </div>
+        <div className="col-md-3">
+            <Link to={`/register/${items._id}`}>
+                <img className="img-fluid" src={`data:image/png;base64,${items.image.img}`} />
+                <p className="text-center">{items.title}</p>
+            </Link>
         </div>
     )
 }
